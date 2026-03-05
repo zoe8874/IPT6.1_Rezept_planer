@@ -10,28 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Wpf
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für Kulschrakübersicht.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Kulschrakübersicht : Window
     {
-        public MainWindow()
+        public Kulschrakübersicht()
         {
             InitializeComponent();
         }
-        private void MyFirgeButton_Click(object sender, RoutedEventArgs e)
-        {
-            var win = new Kulschrakübersicht();
-            win.Owner = this;
-            win.Show();
-
-            win .Close();
-        }
-
     }
 }

@@ -15,3 +15,5 @@ C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\obj\Debug\
 C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\obj\Debug\Wpf.pdb
 C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\obj\Debug\Styles.baml
 C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\obj\Debug\App.baml
+C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\obj\Debug\Kulschrakübersicht.g.cs
+C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\obj\Debug\Kulschrakübersicht.baml

@@ -69,7 +69,7 @@
                     <!--Zutatenfeld -->
                     <Border Margin="0,4" CornerRadius="4" BorderBrush="#FFCCCCCC" BorderThickness="1">
                         <Grid>
-                            <TextBox x:Name="SearchTextBox" Padding="6" Background="Transparent" BorderThickness="0" />
+                            <ComboBox x:Name="SearchTextBox" Width="150" IsEditable="True" Padding="6" Background="Transparent" BorderThickness="0" />
                             <TextBlock Text="Ingredients" Foreground="#88000000" Margin="8,0" VerticalAlignment="Center" IsHitTestVisible="False">
                                 <TextBlock.Style>
                                     <Style TargetType="TextBlock">
@@ -95,8 +95,10 @@
 
             <Grid Grid.Column="1" Margin="10">
                 <Border Margin="0,4" CornerRadius="4" BorderBrush="#FFCCCCCC" BorderThickness="1">
-                    
-                    <ListBox  d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListBox_SelectionChanged" />
+                    <!-- Only a ComboBox is used now; suggestions are shown in the editable ComboBox above. -->
+                    <StackPanel Margin="8">
+                        <TextBlock Text="Your ingredients appear in the input combo box suggestions." Foreground="#88000000"/>
+                    </StackPanel>
                 </Border>
             </Grid>
         </Grid>

@@ -25,18 +25,22 @@ namespace Wpf
         {
             InitializeComponent();
         }
-
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-            // Read text from the named TextBox in the XAML
-            string zutat = SearchTextBox?.Text ?? string.Empty;
-            
+            var text = SearchTextBox.Text?.Trim();
+            if (string.IsNullOrEmpty(text))
+                return;
+
+            // Add to ComboBox suggestions so the entry is available next time
+            if (!SearchTextBox.Items.Contains(text))
+            {
+                SearchTextBox.Items.Add(text);
+            }
+
+            SearchTextBox.Text = string.Empty;
+            SearchTextBox.Focus();
         }
+
+
     }
 }

@@ -27,10 +27,12 @@ namespace Wpf
         private void MyFirgeButton_Click(object sender, RoutedEventArgs e)
         {
             var win = new Kulschrakübersicht();
+            
             win.Owner = this;
             win.Show();
+           
 
-            win .Close();
+         
         }
 
     }

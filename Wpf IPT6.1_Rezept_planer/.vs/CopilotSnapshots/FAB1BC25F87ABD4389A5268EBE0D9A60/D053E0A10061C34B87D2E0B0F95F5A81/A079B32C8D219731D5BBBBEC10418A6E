@@ -33,10 +33,7 @@ namespace Wpf
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-            // Read text from the named TextBox in the XAML
-            string zutat = SearchTextBox?.Text ?? string.Empty;
-            
+            String zutat = TextBlock;
         }
     }
 }

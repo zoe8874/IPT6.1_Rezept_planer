@@ -1,7 +1,7 @@
 # IPT6.1_Rezept_planer
 
-**Authoren:** Gian, Zoé, Kenan
+**Autoren:** Gian, Zoé, Kenan
 
-## Projekt Beschreib
+## Projektbeschreibung
 
-Ein Rezeptplaner zum einfacheren Finden und Kochen von Rezepten.
+Ein Rezeptplaner zum einfacheren Finden und Zubereiten von Rezepten.

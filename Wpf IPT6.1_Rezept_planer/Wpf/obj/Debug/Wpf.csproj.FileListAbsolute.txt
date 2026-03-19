@@ -17,3 +17,17 @@ C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\obj\Debug\
 C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\obj\Debug\App.baml
 C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\obj\Debug\Kulschrakübersicht.g.cs
 C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\obj\Debug\Kulschrakübersicht.baml
+C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\bin\Debug\Microsoft.Data.Sqlite.dll
+C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\bin\Debug\SQLitePCLRaw.batteries_v2.dll
+C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\bin\Debug\SQLitePCLRaw.core.dll
+C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\bin\Debug\SQLitePCLRaw.provider.dynamic_cdecl.dll
+C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\bin\Debug\System.Buffers.dll
+C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\bin\Debug\System.Memory.dll
+C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\bin\Debug\System.Numerics.Vectors.dll
+C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\bin\Debug\Microsoft.Data.Sqlite.xml
+C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\bin\Debug\System.Buffers.xml
+C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\bin\Debug\System.Memory.xml
+C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\bin\Debug\System.Numerics.Vectors.xml
+C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Sursee Untericht\IPT6.1_Rezept_planer\Wpf IPT6.1_Rezept_planer\Wpf\obj\Debug\Wpf.csproj.Up2Date

@@ -31,7 +31,7 @@
                 <StackPanel Margin="12">
                     <TextBlock Text="Navigation" FontWeight="Bold" Margin="0,0,0,8"/>
                     <Button Content="Recipes" Margin="0,4" Style="{StaticResource RoundedButtonStyle}"/>
-                    <Button x:Name="MyFirgeButton" Content="My Frige" Margin="0,4" Style="{StaticResource RoundedButtonStyle}" Click="MyFirgeButton_Click"/>
+                    <Button x:Name="MyFirgeButton" Content="My Fridge" Margin="0,4" Style="{StaticResource RoundedButtonStyle}" Click="MyFirgeButton_Click"/>
                     <Button Content="Shopping List" Margin="0,4" Style="{StaticResource RoundedButtonStyle}"/>
                 </StackPanel>
             </Border>

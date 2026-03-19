@@ -68,9 +68,24 @@
 
                     <!--Zutatenfeld -->
                     <Border Margin="0,4" CornerRadius="4" BorderBrush="#FFCCCCCC" BorderThickness="1">
-                        <ComboBox x:Name="SearchTextBox" Width="150" IsEditable="True" Padding="6" Background="Transparent" BorderThickness="0" />
-                        
-                        
+                        <Grid>
+                            <ComboBox x:Name="SearchTextBox" Width="150" IsEditable="True" Padding="6" Background="Transparent" BorderThickness="0" />
+                            <TextBlock Text="Ingredients" Foreground="#88000000" Margin="8,0" VerticalAlignment="Center" IsHitTestVisible="False">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=SearchTextBox}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Text, ElementName=SearchTextBox}" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
                     </Border>
 
                     <Button Content="Add" Margin="0,4" Style="{StaticResource RoundedButtonStyle}" Click="Button_Click"/>
@@ -80,9 +95,9 @@
 
             <Grid Grid.Column="1" Margin="10">
                 <Border Margin="0,4" CornerRadius="4" BorderBrush="#FFCCCCCC" BorderThickness="1">
-                    
+                    <!-- Only a ComboBox is used now; suggestions are shown in the editable ComboBox above. -->
                     <StackPanel Margin="8">
-                        <TextBlock Text="Your ingredients " Foreground="#88000000"/>
+                        <TextBlock Text="Your ingredients appear in the input combo box suggestions." Foreground="#88000000"/>
                     </StackPanel>
                 </Border>
             </Grid>

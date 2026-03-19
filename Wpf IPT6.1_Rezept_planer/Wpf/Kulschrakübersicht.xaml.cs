@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -20,23 +22,62 @@ namespace Wpf
     /// </summary>
     public partial class Kulschrakübersicht : Window
     {
-      // List<Zutaten>mienkulschrkan;
+        private const string DatabasePath = @"..\..\..\..\Datenbank\RezeptPlaner.db";
+
         public Kulschrakübersicht()
         {
             InitializeComponent();
+            LoadIngredientsFromDatabase();
+        }
+
+        private void LoadIngredientsFromDatabase()
+        {
+            try
+            {
+                string connectionString = $"Data Source={DatabasePath};Version=3;";
+
+                using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Passe die SQL-Abfrage an deine Datenbankstruktur an
+                    string query = "SELECT Name FROM Zutaten ORDER BY Name";
+
+                    using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        List<string> ingredients = new List<string>();
+
+                        while (reader.Read())
+                        {
+                            ingredients.Add(reader["Name"].ToString());
+                        }
+
+                        IngredientsComboBox.ItemsSource = ingredients;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fehler beim Laden der Zutaten: {ex.Message}", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-            // Read text from the named TextBox in the XAML
-            string zutat = SearchTextBox?.Text ?? string.Empty;
-            
+            // Liest den ausgewählten oder eingegebenen Text aus der ComboBox
+            string zutat = IngredientsComboBox.Text ?? string.Empty;
+
+            if (!string.IsNullOrWhiteSpace(zutat))
+            {
+                // Hier kannst du die Zutat zum Kühlschrank hinzufügen
+                MessageBox.Show($"Zutat '{zutat}' wurde hinzugefügt!", "Erfolg", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }

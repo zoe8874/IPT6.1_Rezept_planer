@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wpf IPT6.1_Rezept_planer", "Wpf IPT6.1_Rezept_planer", "{ACEF4D7C-9F6C-C595-3678-EF3E2B3C52E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf", "Wpf IPT6.1_Rezept_planer\Wpf\Wpf.csproj", "{7AA3570B-1423-2077-2504-D6103A748A1D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7AA3570B-1423-2077-2504-D6103A748A1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AA3570B-1423-2077-2504-D6103A748A1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AA3570B-1423-2077-2504-D6103A748A1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AA3570B-1423-2077-2504-D6103A748A1D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7AA3570B-1423-2077-2504-D6103A748A1D} = {ACEF4D7C-9F6C-C595-3678-EF3E2B3C52E7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25957785-CF00-4863-A31A-2A477E7BB232}
+	EndGlobalSection
+EndGlobal

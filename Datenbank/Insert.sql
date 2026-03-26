@@ -40,6 +40,7 @@ INSERT INTO Einheit (Name) VALUES
 -- Zutaten
 INSERT INTO Zutat (Name, KategorieID, StandardEinheitID) VALUES
     -- Gemüse
+    ('TESTTTTT', 1, 1),
     ('Tomaten', 1, 1),
     ('Zwiebeln', 1, 1),
     ('Paprika', 1, 1),

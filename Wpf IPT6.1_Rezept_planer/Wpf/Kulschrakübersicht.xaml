@@ -39,6 +39,37 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="DeleteButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#FFDC3545"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="24"/>
+            <Setter Property="Height" Value="24"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="12"
+                                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
 
     <DockPanel>
@@ -57,42 +88,86 @@
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="220"/>
+                <ColumnDefinition Width="250"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
 
             <Border Grid.Column="0" Background="#FFF7F7F7" BorderBrush="#FFCCCCCC" BorderThickness="1" Margin="10" CornerRadius="6">
                 <StackPanel Margin="12">
-                    <TextBlock FontWeight="Bold" Margin="0,0,0,8"><Run Language="de-ch" Text="Add Ingredienst to your frige"/></TextBlock>
+                    <TextBlock FontWeight="Bold" Margin="0,0,0,8"><Run Language="de-ch" Text="Add Ingredients to your fridge"/></TextBlock>
 
-                    <!--Zutatenfeld -->
-                    <Border Margin="0,4" CornerRadius="4" BorderBrush="#FFCCCCCC" BorderThickness="1">
-<<<<<<< HEAD
-                        <ComboBox x:Name="SearchTextBox" Width="150" IsEditable="True" Padding="6" Background="Transparent" BorderThickness="0" />
-                        
-                        
-=======
+                    <!-- Zutatenfeld -->
+                    <TextBlock Text="Zutat:" Margin="0,4,0,2"/>
+                    <Border Margin="0,0,0,4" CornerRadius="4" BorderBrush="#FFCCCCCC" BorderThickness="1">
                         <ComboBox x:Name="IngredientsComboBox" Padding="6" Background="Transparent" BorderThickness="0" IsEditable="True" />
->>>>>>> master
                     </Border>
 
-                    <Button Content="Add" Margin="0,4" Style="{StaticResource RoundedButtonStyle}" Click="Button_Click"/>
+                    <!-- Mengenfeld -->
+                    <TextBlock Text="Menge:" Margin="0,4,0,2"/>
+                    <Border Margin="0,0,0,4" CornerRadius="4" BorderBrush="#FFCCCCCC" BorderThickness="1">
+                        <TextBox x:Name="MengeTextBox" Padding="6" Background="Transparent" BorderThickness="0" />
+                    </Border>
+
+                    <!-- Einheitenfeld -->
+                    <TextBlock Text="Einheit:" Margin="0,4,0,2"/>
+                    <Border Margin="0,0,0,4" CornerRadius="4" BorderBrush="#FFCCCCCC" BorderThickness="1">
+                        <ComboBox x:Name="EinheitComboBox" Padding="6" Background="Transparent" BorderThickness="0" />
+                    </Border>
+
+                    <!-- Ablaufdatum -->
+                    <TextBlock Text="Ablaufdatum:" Margin="0,4,0,2"/>
+                    <Border Margin="0,0,0,4" CornerRadius="4" BorderBrush="#FFCCCCCC" BorderThickness="1">
+                        <DatePicker x:Name="AblaufdatumPicker" Padding="6" Background="Transparent" BorderThickness="0" />
+                    </Border>
+
+                    <Button Content="Add" Margin="0,8,0,4" Style="{StaticResource RoundedButtonStyle}" Click="Button_Click"/>
 
                 </StackPanel>
             </Border>
 
             <Grid Grid.Column="1" Margin="10">
-                <Border Margin="0,4" CornerRadius="4" BorderBrush="#FFCCCCCC" BorderThickness="1">
-<<<<<<< HEAD
-                    
-                    <StackPanel Margin="8">
-                        <TextBlock Text="Your ingredients " Foreground="#88000000"/>
-                    </StackPanel>
-=======
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-                    <ListBox  d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListBox_SelectionChanged" />
->>>>>>> master
+                <TextBlock Text="Kühlschrank Inhalt" FontWeight="Bold" FontSize="16" Margin="8,4"/>
+
+                <Border Grid.Row="1" Margin="0,4" CornerRadius="4" BorderBrush="#FFCCCCCC" BorderThickness="1">
+                    <ListBox x:Name="KuehlschrankListBox" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="#FFCCCCCC" BorderThickness="0,0,0,1" Padding="8,6">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackPanel Grid.Column="0">
+                                            <TextBlock Text="{Binding ZutatName}" FontWeight="Bold" FontSize="14"/>
+                                            <TextBlock Margin="0,2,0,0">
+                                                <Run Text="Menge: "/>
+                                                <Run Text="{Binding Menge}" FontWeight="SemiBold"/>
+                                                <Run Text=" "/>
+                                                <Run Text="{Binding EinheitName}"/>
+                                            </TextBlock>
+                                            <TextBlock Margin="0,2,0,0" Foreground="#FF666666">
+                                                <Run Text="Ablaufdatum: "/>
+                                                <Run Text="{Binding Ablaufdatum, StringFormat='dd.MM.yyyy'}"/>
+                                            </TextBlock>
+                                        </StackPanel>
+
+                                        <Button Grid.Column="1" Content="✕" VerticalAlignment="Center"
+                                                Style="{StaticResource DeleteButtonStyle}"
+                                                Click="DeleteButton_Click"
+                                                Tag="{Binding EintragID}"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </Border>
             </Grid>
         </Grid>

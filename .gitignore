@@ -1,0 +1,58 @@
+# Build
+
+bin/
+
+obj/
+ 
+# User-specific files
+
+*.user
+
+*.suo
+
+*.userosscache
+
+*.sln.docstates
+ 
+# IDEs
+
+.vs/
+
+.idea/
+
+.vscode/
+ 
+# Logs
+
+*.log
+ 
+# OS files
+
+.DS_Store
+
+Thumbs.db
+ 
+# NuGet
+
+*.nupkg
+
+packages/
+ 
+# .NET Core
+
+project.lock.json
+
+project.fragment.lock.json
+
+artifacts/
+ 
+# Publish output
+
+publish/
+ 
+# Temporary files
+
+*.tmp
+
+*.temp
+ 

@@ -1,12 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\gian\\Documents\\GitHub\\IPT6.1_Rezept_planer\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf IPT6.1_Rezept_planer\\Wpf\\Wpf.csproj|c:\\users\\gian\\documents\\github\\ipt6.1_rezept_planer\\wpf ipt6.1_rezept_planer\\wpf\\kulschrak\u00FCbersicht.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf IPT6.1_Rezept_planer\\Wpf\\Wpf.csproj|solutionrelative:wpf ipt6.1_rezept_planer\\wpf\\kulschrak\u00FCbersicht.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -23,19 +18,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Kulschrak\u00FCbersicht.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\gian\\Documents\\GitHub\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\Kulschrak\u00FCbersicht.xaml.cs",
-              "RelativeDocumentMoniker": "Wpf IPT6.1_Rezept_planer\\Wpf\\Kulschrak\u00FCbersicht.xaml.cs",
-              "ToolTip": "C:\\Users\\gian\\Documents\\GitHub\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\Kulschrak\u00FCbersicht.xaml.cs",
-              "RelativeToolTip": "Wpf IPT6.1_Rezept_planer\\Wpf\\Kulschrak\u00FCbersicht.xaml.cs",
-              "ViewState": "AgIAAKQAAAAAAAAAAAAAALAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-02T06:22:04.071Z",
-              "EditorCaption": ""
             }
           ]
         }

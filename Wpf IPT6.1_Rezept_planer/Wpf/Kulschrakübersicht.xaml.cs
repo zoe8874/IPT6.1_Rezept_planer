@@ -162,22 +162,6 @@ namespace Wpf
                     "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-<<<<<<< HEAD
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var text = SearchTextBox.Text?.Trim();
-            if (string.IsNullOrEmpty(text))
-                return;
-
-            // Add to ComboBox suggestions so the entry is available next time
-            if (!SearchTextBox.Items.Contains(text))
-            {
-                SearchTextBox.Items.Add(text);
-            }
-
-            SearchTextBox.Text = string.Empty;
-            SearchTextBox.Focus();
-=======
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -342,10 +326,7 @@ namespace Wpf
                 
                 return -1;
             }
->>>>>>> master
         }
-
-
     }
 
     // ViewModel-Klasse für die Anzeige der Kühlschrank-Einträge

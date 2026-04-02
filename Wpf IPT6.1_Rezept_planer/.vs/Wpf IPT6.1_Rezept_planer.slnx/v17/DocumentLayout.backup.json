@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\gian\\Documents\\GitHub\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf\\Wpf.csproj|C:\\Users\\gian\\Documents\\GitHub\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\wpf\\kulschrak\u00FCbersicht.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf\\Wpf.csproj|solutionrelative:wpf\\kulschrak\u00FCbersicht.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf\\Wpf.csproj|c:\\users\\gian\\documents\\github\\ipt6.1_rezept_planer\\wpf ipt6.1_rezept_planer\\wpf\\kulschrak\u00FCbersicht.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf\\Wpf.csproj|solutionrelative:wpf\\kulschrak\u00FCbersicht.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf\\Wpf.csproj|C:\\Users\\gian\\Documents\\GitHub\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\wpf\\kulschrak\u00FCbersicht.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf\\Wpf.csproj|solutionrelative:wpf\\kulschrak\u00FCbersicht.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf\\Wpf.csproj|C:\\Users\\gian\\Documents\\GitHub\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\wpf\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -41,7 +41,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -53,7 +53,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Kulschrak\u00FCbersicht.xaml.cs",
               "DocumentMoniker": "C:\\Users\\gian\\Documents\\GitHub\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\Kulschrak\u00FCbersicht.xaml.cs",
               "RelativeDocumentMoniker": "Wpf\\Kulschrak\u00FCbersicht.xaml.cs",
@@ -73,7 +73,8 @@
               "ToolTip": "C:\\Users\\gian\\Documents\\GitHub\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\App.xaml",
               "RelativeToolTip": "Wpf\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-19T06:37:23.567Z"
+              "WhenOpened": "2026-03-19T06:37:23.567Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -89,7 +90,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Kulschrak\u00FCbersicht.xaml",
               "DocumentMoniker": "C:\\Users\\gian\\Documents\\GitHub\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\Kulschrak\u00FCbersicht.xaml",
               "RelativeDocumentMoniker": "Wpf\\Kulschrak\u00FCbersicht.xaml",

@@ -78,6 +78,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Listeeinkauf.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -88,6 +92,9 @@
     </Compile>
     <Compile Include="Kulschrakübersicht.xaml.cs">
       <DependentUpon>Kulschrakübersicht.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Listeeinkauf.xaml.cs">
+      <DependentUpon>Listeeinkauf.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

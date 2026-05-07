@@ -35,5 +35,14 @@ namespace Wpf
          
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var win = new Listeeinkauf();
+
+            win.Owner = this;
+            win.Show();
+
+
+        }
     }
 }

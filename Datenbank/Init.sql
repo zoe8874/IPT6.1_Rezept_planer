@@ -11,10 +11,13 @@ CREATE TABLE IF NOT EXISTS RezeptKategorie (
     Name          TEXT NOT NULL UNIQUE
 );
 
--- Einheiten
+-- Einheiten mit Umrechnungsfaktor zur Basiseinheit
 CREATE TABLE IF NOT EXISTS Einheit (
-    EinheitID     INTEGER PRIMARY KEY AUTOINCREMENT,
-    Name          TEXT NOT NULL UNIQUE
+    EinheitID           INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name                TEXT NOT NULL UNIQUE,
+    BasisEinheitID      INTEGER,  -- NULL = ist selbst Basiseinheit
+    UmrechnungsFaktor   DECIMAL,  -- Faktor zur Umrechnung in Basiseinheit
+    FOREIGN KEY (BasisEinheitID) REFERENCES Einheit(EinheitID) ON DELETE SET NULL
 );
 
 -- Zutaten

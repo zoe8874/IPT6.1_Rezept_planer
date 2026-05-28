@@ -24,20 +24,35 @@ INSERT INTO RezeptKategorie (Name) VALUES
     ('Salat'),
     ('Vegan');
 
--- Einheiten
-INSERT INTO Einheit (Name) VALUES
-    ('g'),
-    ('kg'),
-    ('ml'),
-    ('l'),
-    ('Stück'),
-    ('EL'),
-    ('TL'),
-    ('Becher'),
-    ('Packung'),
-    ('Dose');
+-- Einheiten mit Umrechnungsfaktoren
+-- Basiseinheiten (BasisEinheitID = NULL, UmrechnungsFaktor = 1.0)
+INSERT INTO Einheit (Name, BasisEinheitID, UmrechnungsFaktor) VALUES
+    ('g', NULL, 1.0),          -- ID 1: Gramm (Basiseinheit für Gewicht)
+    ('ml', NULL, 1.0),         -- ID 2: Milliliter (Basiseinheit für Volumen)
+    ('Stück', NULL, 1.0);      -- ID 3: Stück (Basiseinheit für Anzahl)
 
--- Zutaten
+-- Abgeleitete Gewichtseinheiten (Basis: Gramm)
+INSERT INTO Einheit (Name, BasisEinheitID, UmrechnungsFaktor) VALUES
+    ('kg', 1, 1000.0),         -- ID 4: 1 kg = 1000 g
+    ('mg', 1, 0.001);          -- ID 5: 1 mg = 0.001 g
+
+-- Abgeleitete Volumeneinheiten (Basis: Milliliter)
+INSERT INTO Einheit (Name, BasisEinheitID, UmrechnungsFaktor) VALUES
+    ('l', 2, 1000.0),          -- ID 6: 1 l = 1000 ml
+    ('cl', 2, 10.0);           -- ID 7: 1 cl = 10 ml
+
+-- Küchenmaße (approximativ, basierend auf Gewicht)
+INSERT INTO Einheit (Name, BasisEinheitID, UmrechnungsFaktor) VALUES
+    ('EL', 1, 15.0),           -- ID 8: 1 EL ≈ 15 g
+    ('TL', 1, 5.0);            -- ID 9: 1 TL ≈ 5 g
+
+-- Sonstige Einheiten (keine Umrechnung möglich)
+INSERT INTO Einheit (Name, BasisEinheitID, UmrechnungsFaktor) VALUES
+    ('Becher', NULL, 1.0),     -- ID 10
+    ('Packung', NULL, 1.0),    -- ID 11
+    ('Dose', NULL, 1.0);       -- ID 12
+
+-- Zutaten (StandardEinheitID angepasst an neue IDs)
 INSERT INTO Zutat (Name, KategorieID, StandardEinheitID) VALUES
     -- Gemüse
     ('TESTTTTT', 1, 1),
@@ -51,10 +66,10 @@ INSERT INTO Zutat (Name, KategorieID, StandardEinheitID) VALUES
     ('Knoblauch', 1, 1),
     
     -- Obst
-    ('Äpfel', 2, 5),
-    ('Bananen', 2, 5),
+    ('Äpfel', 2, 3),
+    ('Bananen', 2, 3),
     ('Erdbeeren', 2, 1),
-    ('Orangen', 2, 5),
+    ('Orangen', 2, 3),
     
     -- Fleisch
     ('Hähnchen', 3, 1),
@@ -66,17 +81,17 @@ INSERT INTO Zutat (Name, KategorieID, StandardEinheitID) VALUES
     ('Forelle', 4, 1),
     
     -- Milchprodukte
-    ('Milch', 5, 3),
+    ('Milch', 5, 2),
     ('Käse', 5, 1),
-    ('Eier', 5, 5),
-    ('Joghurt', 5, 8),
+    ('Eier', 5, 3),
+    ('Joghurt', 5, 10),
     ('Butter', 5, 1),
     
     -- Getreide
     ('Mehl', 6, 1),
     ('Reis', 6, 1),
     ('Nudeln', 6, 1),
-    ('Brot', 6, 5),
+    ('Brot', 6, 3),
     
     -- Gewürze
     ('Salz', 7, 1),
@@ -84,11 +99,11 @@ INSERT INTO Zutat (Name, KategorieID, StandardEinheitID) VALUES
     ('Paprikapulver', 7, 1),
     
     -- Öle & Fette
-    ('Olivenöl', 8, 3),
+    ('Olivenöl', 8, 2),
     ('Butter Premium', 8, 1),
     
     -- Sonstiges
-    ('Tomatensose', 10, 3),
+    ('Tomatensose', 10, 2),
     ('Zucker', 10, 1),
     ('Basilikim', 10, 1),
     ('Oregano', 10, 1);
@@ -118,26 +133,26 @@ INSERT INTO ZutatTag (ZutatID, TagID) VALUES
 
 INSERT INTO KuehlschrankEintrag (ZutatID, Menge, EinheitID, Ablaufdatum) VALUES
     (1, 500, 1, DATE('now', '+7 days')),      -- 500g Tomaten (in 7 Tagen)
-    (2, 3, 5, DATE('now', '+10 days')),       -- 3 Zwiebeln (in 10 Tagen)
-    (3, 2, 5, DATE('now', '+5 days')),        -- 2 Paprika (in 5 Tagen)
+    (2, 3, 3, DATE('now', '+10 days')),       -- 3 Zwiebeln (in 10 Tagen)
+    (3, 2, 3, DATE('now', '+5 days')),        -- 2 Paprika (in 5 Tagen)
     (5, 800, 1, DATE('now', '+3 days')),      -- 800g Brokkoli (in 3 Tagen - BALD!)
     (6, 200, 1, DATE('now', '+2 days')),      -- 200g Spinat (in 2 Tagen - SEHR BALD!)
     (7, 600, 1, DATE('now', '+8 days')),      -- 600g Möhren
-    (8, 4, 5, DATE('now', '+14 days')),       -- 4 Knoblauchzehen
-    (9, 5, 5, DATE('now', '+4 days')),        -- 5 Äpfel
-    (10, 3, 5, DATE('now', '+6 days')),       -- 3 Bananen
+    (8, 4, 3, DATE('now', '+14 days')),       -- 4 Knoblauchzehen
+    (9, 5, 3, DATE('now', '+4 days')),        -- 5 Äpfel
+    (10, 3, 3, DATE('now', '+6 days')),       -- 3 Bananen
     (13, 800, 1, DATE('now', '+5 days')),     -- 800g Hähnchen
-    (18, 1000, 3, DATE('now', '+9 days')),    -- 1000ml Milch
+    (18, 1000, 2, DATE('now', '+9 days')),    -- 1000ml Milch
     (19, 300, 1, DATE('now', '+12 days')),    -- 300g Käse
-    (20, 8, 5, DATE('now', '+10 days')),      -- 8 Eier
-    (22, 500, 8, DATE('now', '+6 days')),     -- 500g Joghurt
+    (20, 8, 3, DATE('now', '+10 days')),      -- 8 Eier
+    (22, 500, 10, DATE('now', '+6 days')),    -- 500g Joghurt
     (23, 200, 1, DATE('now', '+20 days')),    -- 200g Butter
     (24, 1000, 1, DATE('now', '+30 days')),   -- 1000g Mehl
     (25, 500, 1, DATE('now', '+180 days')),   -- 500g Reis
     (26, 500, 1, DATE('now', '+60 days')),    -- 500g Nudeln
-    (27, 1, 5, DATE('now', '+3 days')),       -- 1 Brot (in 3 Tagen)
-    (30, 500, 3, DATE('now', '+90 days')),    -- 500ml Olivenöl
-    (32, 400, 3, DATE('now', '+15 days')),    -- 400ml Tomatensose
+    (27, 1, 3, DATE('now', '+3 days')),       -- 1 Brot (in 3 Tagen)
+    (30, 500, 2, DATE('now', '+90 days')),    -- 500ml Olivenöl
+    (32, 400, 2, DATE('now', '+15 days')),    -- 400ml Tomatensose
     (34, 10, 1, DATE('now', '+365 days'));    -- 10g Basilikum
 
 -- Rezepte
@@ -178,23 +193,23 @@ INSERT INTO Rezept (Name, Beschreibung, Anleitung, KategorieID, Favorit) VALUES
      '1. Teig nach Rezept zubereiten\n2. Spinat-Käse-Mischung herstellen\n3. Teig ausrollen und mit Mischung bestreichen\n4. Rollen schneiden\n5. Bei 200°C 20 Minuten backen',
      5, 0);
 
--- Pasta Tomato
+-- Pasta Tomato (EinheitIDs angepasst)
 INSERT INTO RezeptZutat (RezeptID, ZutatID, Menge, EinheitID) VALUES
     (1, 26, 400, 1),      -- 400g Nudeln
-    (1, 32, 400, 3),      -- 400ml Tomatensose
-    (1, 2, 1, 5),         -- 1 Zwiebel
-    (1, 8, 2, 5),         -- 2 Knoblauchzehen
-    (1, 30, 2, 6),        -- 2 EL Olivenöl
-    (1, 34, 1, 6),        -- 1 EL frisches Basilikum
+    (1, 32, 400, 2),      -- 400ml Tomatensose
+    (1, 2, 1, 3),         -- 1 Zwiebel
+    (1, 8, 2, 3),         -- 2 Knoblauchzehen
+    (1, 30, 2, 8),        -- 2 EL Olivenöl
+    (1, 34, 1, 8),        -- 1 EL frisches Basilikum
     (1, 29, 1, 1),        -- 1g Salz
     (1, 31, 1, 1);        -- 1g Pfeffer
 
--- Spinat-Auflauf
+-- Spinat-Auflauf (EinheitIDs angepasst)
 INSERT INTO RezeptZutat (RezeptID, ZutatID, Menge, EinheitID) VALUES
     (2, 6, 500, 1),       -- 500g Spinat
     (2, 23, 50, 1),       -- 50g Butter
     (2, 24, 40, 1),       -- 40g Mehl
-    (2, 18, 400, 3),      -- 400ml Milch
+    (2, 18, 400, 2),      -- 400ml Milch
     (2, 19, 200, 1),      -- 200g Käse
     (2, 29, 1, 1),        -- 1g Salz
     (2, 31, 1, 1);        -- 1g Pfeffer
@@ -204,7 +219,7 @@ INSERT INTO RezeptZutat (RezeptID, ZutatID, Menge, EinheitID) VALUES
     (3, 5, 800, 1),       -- 800g Brokkoli
     (3, 23, 50, 1),       -- 50g Butter
     (3, 24, 40, 1),       -- 40g Mehl
-    (3, 18, 400, 3),      -- 400ml Milch
+    (3, 18, 400, 2),      -- 400ml Milch
     (3, 19, 200, 1),      -- 200g Käse
     (3, 29, 1, 1),        -- 1g Salz
     (3, 31, 1, 1);        -- 1g Pfeffer

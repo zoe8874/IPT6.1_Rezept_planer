@@ -22,6 +22,8 @@ namespace Wpf
     /// </summary>
     public partial class Kulschrakübersicht : Window
     {
+        private int? editingEintragID = null;
+
         public Kulschrakübersicht()
         {
             InitializeComponent();
@@ -224,6 +226,144 @@ namespace Wpf
             }
         }
 
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            if (button?.Tag != null)
+            {
+                int eintragID = Convert.ToInt32(button.Tag);
+                LoadEintragForEdit(eintragID);
+            }
+        }
+
+        private void LoadEintragForEdit(int eintragID)
+        {
+            try
+            {
+                string connectionString = $"Data Source={App.DatabasePath};Version=3;";
+                
+                using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = @"SELECT 
+                                        z.Name AS ZutatName,
+                                        k.Menge,
+                                        e.Name AS EinheitName,
+                                        k.Ablaufdatum
+                                     FROM KuehlschrankEintrag k
+                                     INNER JOIN Zutat z ON k.ZutatID = z.ZutatID
+                                     INNER JOIN Einheit e ON k.EinheitID = e.EinheitID
+                                     WHERE k.EintragID = @EintragID";
+
+                    using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@EintragID", eintragID);
+
+                        using (SQLiteDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                editingEintragID = eintragID;
+
+                                IngredientsComboBox.Text = reader["ZutatName"].ToString();
+                                MengeTextBox.Text = Convert.ToDouble(reader["Menge"]).ToString();
+                                EinheitComboBox.Text = reader["EinheitName"].ToString();
+                                AblaufdatumPicker.SelectedDate = Convert.ToDateTime(reader["Ablaufdatum"]);
+
+                                // UI für Bearbeitungsmodus anpassen
+                                AddButton.Visibility = Visibility.Collapsed;
+                                UpdateButton.Visibility = Visibility.Visible;
+                                CancelButton.Visibility = Visibility.Visible;
+
+                                IngredientsComboBox.IsEnabled = false; // Zutat kann nicht geändert werden
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fehler beim Laden des Eintrags:\n{ex.Message}", 
+                    "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!editingEintragID.HasValue)
+            {
+                return;
+            }
+
+            // Validierung
+            string mengeText = MengeTextBox.Text ?? string.Empty;
+            string einheit = EinheitComboBox.Text ?? string.Empty;
+            DateTime? ablaufdatum = AblaufdatumPicker.SelectedDate;
+
+            if (string.IsNullOrWhiteSpace(mengeText) || !double.TryParse(mengeText, out double menge))
+            {
+                MessageBox.Show("Bitte geben Sie eine gültige Menge ein.", 
+                    "Hinweis", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(einheit))
+            {
+                MessageBox.Show("Bitte wählen Sie eine Einheit aus.", 
+                    "Hinweis", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            if (!ablaufdatum.HasValue)
+            {
+                MessageBox.Show("Bitte wählen Sie ein Ablaufdatum aus.", 
+                    "Hinweis", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            try
+            {
+                UpdateKuehlschrankEintrag(editingEintragID.Value, menge, einheit, ablaufdatum.Value);
+                
+                ResetEditMode();
+                LoadKuehlschrankEintraege();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fehler beim Aktualisieren der Zutat:\n{ex.Message}", 
+                    "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            ResetEditMode();
+        }
+
+        private void ResetEditMode()
+        {
+            editingEintragID = null;
+
+            MengeTextBox.Clear();
+            AblaufdatumPicker.SelectedDate = null;
+            
+            if (IngredientsComboBox.Items.Count > 0)
+            {
+                IngredientsComboBox.SelectedIndex = 0;
+            }
+            
+            if (EinheitComboBox.Items.Count > 0)
+            {
+                EinheitComboBox.SelectedIndex = 0;
+            }
+
+            IngredientsComboBox.IsEnabled = true;
+            AddButton.Visibility = Visibility.Visible;
+            UpdateButton.Visibility = Visibility.Collapsed;
+            CancelButton.Visibility = Visibility.Collapsed;
+        }
+
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
@@ -266,6 +406,40 @@ namespace Wpf
                 using (SQLiteCommand command = new SQLiteCommand(deleteQuery, connection))
                 {
                     command.Parameters.AddWithValue("@EintragID", eintragID);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        private void UpdateKuehlschrankEintrag(int eintragID, double menge, string einheitName, DateTime ablaufdatum)
+        {
+            string connectionString = $"Data Source={App.DatabasePath};Version=3;";
+            
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                // Hole EinheitID
+                int einheitId = GetIdByName(connection, "Einheit", "EinheitID", einheitName);
+                if (einheitId == -1)
+                {
+                    throw new Exception($"Einheit '{einheitName}' wurde nicht in der Datenbank gefunden.");
+                }
+
+                // Aktualisiere den Eintrag
+                string updateQuery = @"UPDATE KuehlschrankEintrag 
+                                      SET Menge = @Menge, 
+                                          EinheitID = @EinheitID, 
+                                          Ablaufdatum = @Ablaufdatum 
+                                      WHERE EintragID = @EintragID";
+                
+                using (SQLiteCommand command = new SQLiteCommand(updateQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@Menge", menge);
+                    command.Parameters.AddWithValue("@EinheitID", einheitId);
+                    command.Parameters.AddWithValue("@Ablaufdatum", ablaufdatum.ToString("yyyy-MM-dd"));
+                    command.Parameters.AddWithValue("@EintragID", eintragID);
+                    
                     command.ExecuteNonQuery();
                 }
             }

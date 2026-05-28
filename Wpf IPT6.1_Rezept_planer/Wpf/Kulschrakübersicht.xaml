@@ -1,5 +1,5 @@
 ﻿<Window x:Class="Wpf.Kulschrakübersicht"
-                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -70,6 +70,45 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="EditButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#FF007BFF"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="24"/>
+            <Setter Property="Height" Value="24"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="12"
+                                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="UpdateButtonStyle" TargetType="Button" BasedOn="{StaticResource RoundedButtonStyle}">
+            <Setter Property="Background" Value="#FFFFC107"/>
+        </Style>
+
+        <Style x:Key="CancelButtonStyle" TargetType="Button" BasedOn="{StaticResource RoundedButtonStyle}">
+            <Setter Property="Background" Value="#FF6C757D"/>
+        </Style>
     </Window.Resources>
 
     <DockPanel>
@@ -121,7 +160,9 @@
                         <DatePicker x:Name="AblaufdatumPicker" Padding="6" Background="Transparent" BorderThickness="0" />
                     </Border>
 
-                    <Button Content="Add" Margin="0,8,0,4" Style="{StaticResource RoundedButtonStyle}" Click="Button_Click"/>
+                    <Button x:Name="AddButton" Content="Add" Margin="0,8,0,4" Style="{StaticResource RoundedButtonStyle}" Click="Button_Click"/>
+                    <Button x:Name="UpdateButton" Content="Update" Margin="0,4,0,4" Style="{StaticResource UpdateButtonStyle}" Click="UpdateButton_Click" Visibility="Collapsed"/>
+                    <Button x:Name="CancelButton" Content="Cancel" Margin="0,4,0,4" Style="{StaticResource CancelButtonStyle}" Click="CancelButton_Click" Visibility="Collapsed"/>
 
                 </StackPanel>
             </Border>
@@ -159,10 +200,16 @@
                                             </TextBlock>
                                         </StackPanel>
 
-                                        <Button Grid.Column="1" Content="✕" VerticalAlignment="Center"
-                                                Style="{StaticResource DeleteButtonStyle}"
-                                                Click="DeleteButton_Click"
-                                                Tag="{Binding EintragID}"/>
+                                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                            <Button Content="✎" VerticalAlignment="Center" Margin="0,0,4,0"
+                                                    Style="{StaticResource EditButtonStyle}"
+                                                    Click="EditButton_Click"
+                                                    Tag="{Binding EintragID}"/>
+                                            <Button Content="✕" VerticalAlignment="Center"
+                                                    Style="{StaticResource DeleteButtonStyle}"
+                                                    Click="DeleteButton_Click"
+                                                    Tag="{Binding EintragID}"/>
+                                        </StackPanel>
                                     </Grid>
                                 </Border>
                             </DataTemplate>

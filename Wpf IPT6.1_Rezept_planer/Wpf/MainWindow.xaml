@@ -30,8 +30,8 @@
             <Border Grid.Column="0" Background="#FFF7F7F7" BorderBrush="#FFCCCCCC" BorderThickness="1" Margin="10" CornerRadius="6">
                 <StackPanel Margin="12">
                     <TextBlock Text="Navigation" FontWeight="Bold" Margin="0,0,0,8"/>
-                    <Button Content="Recipes" Margin="0,4" Style="{StaticResource RoundedButtonStyle}"/>
-                    <Button x:Name="MyFirgeButton" Content="My firge" Margin="0,4" Style="{StaticResource RoundedButtonStyle}" Click="MyFirgeButton_Click"/>
+                    <Button Content="Recipes" Margin="0,4" Style="{StaticResource RoundedButtonStyle}" Click="Button_Click_1"/>
+                    <Button x:Name="MyFirgeButton" Content="My fridge" Margin="0,4" Style="{StaticResource RoundedButtonStyle}" Click="MyFirgeButton_Click"/>
                     <Button Content="Shopping List" Margin="0,4" Style="{StaticResource RoundedButtonStyle}" Click="Button_Click"/>
                 </StackPanel>
             </Border>

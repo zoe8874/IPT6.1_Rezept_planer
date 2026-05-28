@@ -44,5 +44,12 @@ namespace Wpf
 
 
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var win = new Rezept();
+            win.Owner = this;
+            win.Show();
+        }
     }
 }

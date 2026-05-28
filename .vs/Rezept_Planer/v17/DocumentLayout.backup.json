@@ -1,7 +1,32 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\gian\\Documents\\GitHub\\IPT6.1_Rezept_planer\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\41792\\Downloads\\IPT6.1_Rezept_planerV1\\IPT6.1_Rezept_planer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf IPT6.1_Rezept_planer\\Wpf\\Wpf.csproj|c:\\users\\41792\\downloads\\ipt6.1_rezept_planerv1\\ipt6.1_rezept_planer\\wpf ipt6.1_rezept_planer\\wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf IPT6.1_Rezept_planer\\Wpf\\Wpf.csproj|solutionrelative:wpf ipt6.1_rezept_planer\\wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf IPT6.1_Rezept_planer\\Wpf\\Wpf.csproj|c:\\users\\41792\\downloads\\ipt6.1_rezept_planerv1\\ipt6.1_rezept_planer\\wpf ipt6.1_rezept_planer\\wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf IPT6.1_Rezept_planer\\Wpf\\Wpf.csproj|solutionrelative:wpf ipt6.1_rezept_planer\\wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf IPT6.1_Rezept_planer\\Wpf\\Wpf.csproj|c:\\users\\41792\\downloads\\ipt6.1_rezept_planerv1\\ipt6.1_rezept_planer\\wpf ipt6.1_rezept_planer\\wpf\\rezept.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf IPT6.1_Rezept_planer\\Wpf\\Wpf.csproj|solutionrelative:wpf ipt6.1_rezept_planer\\wpf\\rezept.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf IPT6.1_Rezept_planer\\Wpf\\Wpf.csproj|c:\\users\\41792\\downloads\\ipt6.1_rezept_planerv1\\ipt6.1_rezept_planer\\wpf ipt6.1_rezept_planer\\wpf\\rezept.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf IPT6.1_Rezept_planer\\Wpf\\Wpf.csproj|solutionrelative:wpf ipt6.1_rezept_planer\\wpf\\rezept.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf IPT6.1_Rezept_planer\\Wpf\\Wpf.csproj|c:\\users\\41792\\downloads\\ipt6.1_rezept_planerv1\\ipt6.1_rezept_planer\\wpf ipt6.1_rezept_planer\\wpf\\kulschrak\u00FCbersicht.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf IPT6.1_Rezept_planer\\Wpf\\Wpf.csproj|solutionrelative:wpf ipt6.1_rezept_planer\\wpf\\kulschrak\u00FCbersicht.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf IPT6.1_Rezept_planer\\Wpf\\Wpf.csproj|c:\\users\\41792\\downloads\\ipt6.1_rezept_planerv1\\ipt6.1_rezept_planer\\wpf ipt6.1_rezept_planer\\wpf\\listeeinkauf.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf IPT6.1_Rezept_planer\\Wpf\\Wpf.csproj|solutionrelative:wpf ipt6.1_rezept_planer\\wpf\\listeeinkauf.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,15 +34,89 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "Name": "ST:0:0:{0672c6e1-9edf-3be9-8226-f0823640821e}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\41792\\Downloads\\IPT6.1_Rezept_planerV1\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Wpf IPT6.1_Rezept_planer\\Wpf\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\41792\\Downloads\\IPT6.1_Rezept_planerV1\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Wpf IPT6.1_Rezept_planer\\Wpf\\MainWindow.xaml.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAAADMAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T20:01:27.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Kulschrak\u00FCbersicht.xaml",
+              "DocumentMoniker": "C:\\Users\\41792\\Downloads\\IPT6.1_Rezept_planerV1\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\Kulschrak\u00FCbersicht.xaml",
+              "RelativeDocumentMoniker": "Wpf IPT6.1_Rezept_planer\\Wpf\\Kulschrak\u00FCbersicht.xaml",
+              "ToolTip": "C:\\Users\\41792\\Downloads\\IPT6.1_Rezept_planerV1\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\Kulschrak\u00FCbersicht.xaml",
+              "RelativeToolTip": "Wpf IPT6.1_Rezept_planer\\Wpf\\Kulschrak\u00FCbersicht.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-27T19:59:30.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Listeeinkauf.xaml",
+              "DocumentMoniker": "C:\\Users\\41792\\Downloads\\IPT6.1_Rezept_planerV1\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\Listeeinkauf.xaml",
+              "RelativeDocumentMoniker": "Wpf IPT6.1_Rezept_planer\\Wpf\\Listeeinkauf.xaml",
+              "ToolTip": "C:\\Users\\41792\\Downloads\\IPT6.1_Rezept_planerV1\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\Listeeinkauf.xaml",
+              "RelativeToolTip": "Wpf IPT6.1_Rezept_planer\\Wpf\\Listeeinkauf.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-27T19:58:29.936Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Rezept.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\41792\\Downloads\\IPT6.1_Rezept_planerV1\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\Rezept.xaml.cs",
+              "RelativeDocumentMoniker": "Wpf IPT6.1_Rezept_planer\\Wpf\\Rezept.xaml.cs",
+              "ToolTip": "C:\\Users\\41792\\Downloads\\IPT6.1_Rezept_planerV1\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\Rezept.xaml.cs",
+              "RelativeToolTip": "Wpf IPT6.1_Rezept_planer\\Wpf\\Rezept.xaml.cs",
+              "ViewState": "AgIAAK8AAAAAAAAAAAAYwMgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T19:48:00.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\41792\\Downloads\\IPT6.1_Rezept_planerV1\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Wpf IPT6.1_Rezept_planer\\Wpf\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\41792\\Downloads\\IPT6.1_Rezept_planerV1\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\MainWindow.xaml",
+              "RelativeToolTip": "Wpf IPT6.1_Rezept_planer\\Wpf\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-27T19:47:36.955Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Rezept.xaml",
+              "DocumentMoniker": "C:\\Users\\41792\\Downloads\\IPT6.1_Rezept_planerV1\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\Rezept.xaml",
+              "RelativeDocumentMoniker": "Wpf IPT6.1_Rezept_planer\\Wpf\\Rezept.xaml",
+              "ToolTip": "C:\\Users\\41792\\Downloads\\IPT6.1_Rezept_planerV1\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\Rezept.xaml",
+              "RelativeToolTip": "Wpf IPT6.1_Rezept_planer\\Wpf\\Rezept.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-27T19:46:48.299Z",
+              "EditorCaption": ""
             }
           ]
         }

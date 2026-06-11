@@ -11,12 +11,12 @@ namespace Wpf
         public Listeeinkauf()
         {
             InitializeComponent();
+
             LoadIngredientsFromDatabase();
             LoadEinheitenFromDatabase();
             LoadEinkaufsEintraege();
         }
 
-        // Zutaten laden
         private void LoadIngredientsFromDatabase()
         {
             string connectionString = $"Data Source={App.DatabasePath};Version=3;";
@@ -33,17 +33,15 @@ namespace Wpf
                     List<string> ingredients = new List<string>();
 
                     while (reader.Read())
+                    {
                         ingredients.Add(reader["Name"].ToString());
+                    }
 
                     IngredientsComboBox.ItemsSource = ingredients;
-
-                    if (ingredients.Count > 0)
-                        IngredientsComboBox.SelectedIndex = 0;
                 }
             }
         }
 
-        // Einheiten laden
         private void LoadEinheitenFromDatabase()
         {
             string connectionString = $"Data Source={App.DatabasePath};Version=3;";
@@ -60,17 +58,15 @@ namespace Wpf
                     List<string> einheiten = new List<string>();
 
                     while (reader.Read())
+                    {
                         einheiten.Add(reader["Name"].ToString());
+                    }
 
                     EinheitComboBox.ItemsSource = einheiten;
-
-                    if (einheiten.Count > 0)
-                        EinheitComboBox.SelectedIndex = 0;
                 }
             }
         }
 
-        // Einkaufsliste laden
         private void LoadEinkaufsEintraege()
         {
             string connectionString = $"Data Source={App.DatabasePath};Version=3;";
@@ -80,19 +76,21 @@ namespace Wpf
                 connection.Open();
 
                 string query = @"
-                    SELECT 
+                    SELECT
                         e.EintragID,
                         z.Name AS ZutatName,
                         e.Menge,
                         en.Name AS EinheitName
                     FROM EinkaufsListeEintrag e
                     INNER JOIN Zutat z ON e.ZutatID = z.ZutatID
-                    LEFT JOIN Einheit en ON e.EinheitID = en.EinheitID";
+                    LEFT JOIN Einheit en ON e.EinheitID = en.EinheitID
+                    ORDER BY z.Name";
 
                 using (SQLiteCommand command = new SQLiteCommand(query, connection))
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
-                    var liste = new List<EinkaufsEintragViewModel>();
+                    List<EinkaufsEintragViewModel> liste =
+                        new List<EinkaufsEintragViewModel>();
 
                     while (reader.Read())
                     {
@@ -110,31 +108,34 @@ namespace Wpf
             }
         }
 
-        // Hinzufügen
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            string zutat = IngredientsComboBox.Text;
-            string mengeText = MengeTextBox.Text;
-            string einheit = EinheitComboBox.Text;
+            string zutat = IngredientsComboBox.Text.Trim();
+            string mengeText = MengeTextBox.Text.Trim();
+            string einheit = EinheitComboBox.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(zutat))
             {
-                MessageBox.Show("Zutat fehlt");
+                MessageBox.Show("Bitte eine Zutat eingeben.");
                 return;
             }
 
             if (!double.TryParse(mengeText, out double menge))
             {
-                MessageBox.Show("Ungültige Menge");
+                MessageBox.Show("Bitte eine gültige Menge eingeben.");
                 return;
             }
 
             AddEinkaufsEintrag(zutat, menge, einheit);
 
+            IngredientsComboBox.Text = "";
             MengeTextBox.Clear();
+            EinheitComboBox.Text = "";
+
+            LoadIngredientsFromDatabase();
+            LoadEinheitenFromDatabase();
             LoadEinkaufsEintraege();
         }
-
 
         private void AddEinkaufsEintrag(string zutatName, double menge, string einheitName)
         {
@@ -144,15 +145,16 @@ namespace Wpf
             {
                 connection.Open();
 
-                int zutatId = GetIdByName(connection, "Zutat", "ZutatID", zutatName);
-                int einheitId = GetIdByName(connection, "Einheit", "EinheitID", einheitName);
+                int zutatId = GetOrCreateZutat(connection, zutatName);
+                int einheitId = GetOrCreateEinheit(connection, einheitName);
 
-                string insertQuery = @"
-                    INSERT INTO EinkaufsListeEintrag 
+                string query = @"
+                    INSERT INTO EinkaufsListeEintrag
                     (EinkaufsListeID, ZutatID, Menge, EinheitID)
-                    VALUES (1, @ZutatID, @Menge, @EinheitID)";
+                    VALUES
+                    (1, @ZutatID, @Menge, @EinheitID)";
 
-                using (SQLiteCommand command = new SQLiteCommand(insertQuery, connection))
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@ZutatID", zutatId);
                     command.Parameters.AddWithValue("@Menge", menge);
@@ -163,17 +165,79 @@ namespace Wpf
             }
         }
 
+        private int GetOrCreateZutat(SQLiteConnection connection, string name)
+        {
+            string selectQuery =
+                "SELECT ZutatID FROM Zutat WHERE Name = @Name";
+
+            using (SQLiteCommand command =
+                   new SQLiteCommand(selectQuery, connection))
+            {
+                command.Parameters.AddWithValue("@Name", name);
+
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                    return Convert.ToInt32(result);
+            }
+
+            string insertQuery =
+                "INSERT INTO Zutat (Name) VALUES (@Name)";
+
+            using (SQLiteCommand command =
+                   new SQLiteCommand(insertQuery, connection))
+            {
+                command.Parameters.AddWithValue("@Name", name);
+                command.ExecuteNonQuery();
+            }
+
+            return (int)connection.LastInsertRowId;
+        }
+
+        private int GetOrCreateEinheit(SQLiteConnection connection, string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                return -1;
+
+            string selectQuery =
+                "SELECT EinheitID FROM Einheit WHERE Name = @Name";
+
+            using (SQLiteCommand command =
+                   new SQLiteCommand(selectQuery, connection))
+            {
+                command.Parameters.AddWithValue("@Name", name);
+
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                    return Convert.ToInt32(result);
+            }
+
+            string insertQuery =
+                "INSERT INTO Einheit (Name) VALUES (@Name)";
+
+            using (SQLiteCommand command =
+                   new SQLiteCommand(insertQuery, connection))
+            {
+                command.Parameters.AddWithValue("@Name", name);
+                command.ExecuteNonQuery();
+            }
+
+            return (int)connection.LastInsertRowId;
+        }
+
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            Button btn = sender as Button;
+            Button button = sender as Button;
 
-            if (btn?.Tag != null)
-            {
-                int id = Convert.ToInt32(btn.Tag);
+            if (button == null)
+                return;
 
-                DeleteEinkaufsEintrag(id);
-                LoadEinkaufsEintraege();
-            }
+            int id = Convert.ToInt32(button.Tag);
+
+            DeleteEinkaufsEintrag(id);
+
+            LoadEinkaufsEintraege();
         }
 
         private void DeleteEinkaufsEintrag(int id)
@@ -184,31 +248,15 @@ namespace Wpf
             {
                 connection.Open();
 
-                string query = "DELETE FROM EinkaufsListeEintrag WHERE EintragID = @ID";
+                string query =
+                    "DELETE FROM EinkaufsListeEintrag WHERE EintragID = @ID";
 
-                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                using (SQLiteCommand command =
+                       new SQLiteCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@ID", id);
                     command.ExecuteNonQuery();
                 }
-            }
-        }
-
-     
-        private int GetIdByName(SQLiteConnection connection, string table, string idCol, string name)
-        {
-            string query = $"SELECT {idCol} FROM {table} WHERE Name = @Name";
-
-            using (SQLiteCommand command = new SQLiteCommand(query, connection))
-            {
-                command.Parameters.AddWithValue("@Name", name);
-
-                object result = command.ExecuteScalar();
-
-                if (result != null)
-                    return Convert.ToInt32(result);
-
-                return -1;
             }
         }
     }
@@ -216,8 +264,11 @@ namespace Wpf
     public class EinkaufsEintragViewModel
     {
         public int EintragID { get; set; }
+
         public string ZutatName { get; set; }
+
         public double Menge { get; set; }
+
         public string EinheitName { get; set; }
     }
 }

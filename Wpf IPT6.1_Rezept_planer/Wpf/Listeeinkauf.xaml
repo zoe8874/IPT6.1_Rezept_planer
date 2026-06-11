@@ -1,83 +1,149 @@
 ﻿<Window x:Class="Wpf.Listeeinkauf"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Listeeinkauf" Height="450" Width="800"
-        Background="#F3F6F8" FontFamily="Segoe UI">
-    <Grid DockPanel.Dock="Top" Height="60" Background="#fff">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="197.5"/>
-            <ColumnDefinition Width="270"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
+        Title="Einkaufsliste"
+        Height="500"
+        Width="1000"
+        Background="#F3F6F8">
 
-        <TextBlock Text="Recipe Planner" Foreground="White" VerticalAlignment="Center" Margin="12,0,12,0" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2"/>
+    <Window.Resources>
 
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#4cBB17"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="8,4"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
 
+        <Style x:Key="DeleteButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#DC3545"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Height" Value="28"/>
+        </Style>
 
-        <!-- Eingabebereich -->
-        <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Grid.ColumnSpan="2">
+    </Window.Resources>
 
-            <ComboBox x:Name="IngredientsComboBox"
-                      Width="150"
-                      Margin="5"/>
+    <DockPanel>
 
-            <TextBox x:Name="MengeTextBox"
-                 Width="100"
-                 Margin="5"
-                 VerticalContentAlignment="Center"
-                 Text=""/>
+        <!-- Header -->
+        <Grid DockPanel.Dock="Top"
+              Height="60"
+              Background="#4cBB17">
 
-            <ComboBox x:Name="EinheitComboBox"
-                      Width="120"
-                      Margin="5"/>
-
-            <Button Content="Hinzufügen"
-                Width="120"
-                Margin="5"
-                Click="AddButton_Click"/>
-        </StackPanel>
-
-        <!-- Liste -->
-        <ListView x:Name="EinkaufListView" Grid.ColumnSpan="2">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Zutat"
-                                Width="200"
-                                DisplayMemberBinding="{Binding ZutatName}"/>
-
-                    <GridViewColumn Header="Menge"
-                                Width="100"
-                                DisplayMemberBinding="{Binding Menge}"/>
-
-                    <GridViewColumn Header="Einheit"
-                                Width="120"
-                                DisplayMemberBinding="{Binding EinheitName}"/>
-
-                    <GridViewColumn Header="Aktion" Width="100">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="Löschen"
-                                    Tag="{Binding EintragID}"
-                                    Click="DeleteButton_Click"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Grid Background="#4cBB17" Grid.ColumnSpan="3" Margin="0,-187,0,187">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-
-            <TextBlock Text="Recipe Planner" Foreground="White" VerticalAlignment="Center" Margin="12,0" FontSize="18" FontWeight="Bold"/>
-
-            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Text="Recipe Planner"
+                       Foreground="White"
+                       VerticalAlignment="Center"
+                       Margin="12,0"
+                       FontSize="18"
+                       FontWeight="Bold"/>
         </Grid>
 
-    </Grid>
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Eingabebereich -->
+            <Border Grid.Column="0"
+                    Background="#FFF7F7F7"
+                    BorderBrush="#CCCCCC"
+                    BorderThickness="1"
+                    Margin="10"
+                    CornerRadius="6">
+
+                <StackPanel Margin="12">
+
+                    <TextBlock Text="Artikel hinzufügen"
+                               FontSize="16"
+                               FontWeight="Bold"
+                               Margin="0,0,0,10"/>
+
+                    <TextBlock Text="Zutat"/>
+
+                    <ComboBox x:Name="IngredientsComboBox"
+                              Margin="0,4,0,10"
+                              Height="30"
+                              IsEditable="True"/>
+
+                    <TextBlock Text="Menge"/>
+
+                    <TextBox x:Name="MengeTextBox"
+                             Margin="0,4,0,10"
+                             Height="30"/>
+
+                    <TextBlock Text="Einheit"/>
+
+                    <ComboBox x:Name="EinheitComboBox"
+                              Margin="0,4,0,15"
+                              Height="30"
+                              IsEditable="True"/>
+
+                    <Button Content="Hinzufügen"
+                            Height="35"
+                            Style="{StaticResource RoundedButtonStyle}"
+                            Click="AddButton_Click"/>
+
+                </StackPanel>
+
+            </Border>
+
+            <!-- Einkaufsliste -->
+            <Border Grid.Column="1"
+                    Margin="10"
+                    BorderBrush="#CCCCCC"
+                    BorderThickness="1"
+                    CornerRadius="6">
+
+                <ListView x:Name="EinkaufListView"
+                          ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+                    <ListView.View>
+
+                        <GridView>
+
+                            <GridViewColumn Header="Zutat"
+                                            Width="250"
+                                            DisplayMemberBinding="{Binding ZutatName}"/>
+
+                            <GridViewColumn Header="Menge"
+                                            Width="120"
+                                            DisplayMemberBinding="{Binding Menge}"/>
+
+                            <GridViewColumn Header="Einheit"
+                                            Width="150"
+                                            DisplayMemberBinding="{Binding EinheitName}"/>
+
+                            <GridViewColumn Header="Aktion"
+                                            Width="100">
+
+                                <GridViewColumn.CellTemplate>
+
+                                    <DataTemplate>
+
+                                        <Button Content="Löschen"
+                                                Tag="{Binding EintragID}"
+                                                Style="{StaticResource DeleteButtonStyle}"
+                                                Click="DeleteButton_Click"/>
+
+                                    </DataTemplate>
+
+                                </GridViewColumn.CellTemplate>
+
+                            </GridViewColumn>
+
+                        </GridView>
+
+                    </ListView.View>
+
+                </ListView>
+
+            </Border>
+
+        </Grid>
+
+    </DockPanel>
+
 </Window>

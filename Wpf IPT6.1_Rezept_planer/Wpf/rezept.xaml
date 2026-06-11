@@ -9,7 +9,7 @@
 
     <DockPanel>
 
-        <!-- HEADER -->
+
         <Grid DockPanel.Dock="Top"
               Height="60"
               Background="#4cBB17">
@@ -29,7 +29,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- LINKE SEITE -->
+
             <Border Grid.Column="0"
                     Background="#FFF7F7F7"
                     BorderBrush="#FFCCCCCC"
@@ -37,46 +37,52 @@
                     Margin="10"
                     CornerRadius="6">
 
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <Grid Margin="12">
 
-                    <StackPanel Margin="12">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
-                        <TextBlock Text="Rezepte"
-                                   FontWeight="Bold"
-                                   FontSize="18"
-                                   Margin="0,0,0,10"/>
+                    <TextBlock Text="Rezepte"
+                               FontWeight="Bold"
+                               FontSize="18"
+                               Margin="0,0,0,10"/>
 
-                        <ListBox x:Name="RezeptListBox"
-                                 SelectionChanged="RezeptListBox_SelectionChanged"
-                                 ScrollViewer.VerticalScrollBarVisibility="Auto"
-                                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListBox x:Name="RezeptListBox"
+                             Grid.Row="1"
+                             SelectionChanged="RezeptListBox_SelectionChanged">
 
-                            <ListBox.ItemTemplate>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
 
-                                <DataTemplate>
+                                <Border BorderBrush="#FFCCCCCC"
+                                        BorderThickness="0,0,0,1"
+                                        Padding="8">
 
-                                    <Border BorderBrush="#FFCCCCCC"
-                                            BorderThickness="0,0,0,1"
-                                            Padding="8">
+                                    <StackPanel>
 
-                                        <StackPanel>
+                                        <TextBlock Text="{Binding Name}"
+                                                   FontWeight="Bold"
+                                                   FontSize="15"/>
 
-                                            <TextBlock Text="{Binding Name}"
-                                                       FontWeight="Bold"
-                                                       FontSize="15"/>
+                                        <TextBlock Text="{Binding Kategorie}"
+                                                   Foreground="Gray"
+                                                   FontSize="12"/>
 
-                                            <TextBlock Text="{Binding Kategorie}"
-                                                       Foreground="Gray"
-                                                       FontSize="12"/>
+                                    </StackPanel>
 
-                                        </StackPanel>
-                                    </Border>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
-                    </StackPanel>
-                </ScrollViewer>
+                                </Border>
+
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+
+                    </ListBox>
+
+                </Grid>
+
             </Border>
+
 
             <Border Grid.Column="1"
                     Margin="10"
@@ -96,7 +102,7 @@
                                    Foreground="Gray"
                                    Margin="0,2,0,15"/>
 
-                      
+
                         <Border x:Name="StatusBorder"
                                 Padding="10"
                                 CornerRadius="6"
@@ -108,7 +114,7 @@
                                        Foreground="DarkGreen"/>
                         </Border>
 
-                    
+
                         <TextBlock Text="Beschreibung"
                                    FontWeight="Bold"
                                    FontSize="16"/>
@@ -126,16 +132,22 @@
                                    Margin="0,5,0,15"
                                    TextWrapping="Wrap"/>
 
-                     
+
                         <TextBlock Text="Zutaten"
                                    FontWeight="Bold"
                                    FontSize="16"/>
 
                         <ListBox x:Name="ZutatenListBox"
                                  Margin="0,5,0,0"/>
+
                     </StackPanel>
+
                 </ScrollViewer>
+
             </Border>
+
         </Grid>
+
     </DockPanel>
+
 </Window>

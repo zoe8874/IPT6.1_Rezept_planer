@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf\\Wpf.csproj|solutionrelative:wpf\\listeeinkauf.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf\\Wpf.csproj|c:\\sursee untericht\\ipt6.1_rezept_planer\\wpf ipt6.1_rezept_planer\\wpf\\listeeinkauf.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf\\Wpf.csproj|C:\\Sursee Untericht\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\wpf\\listeeinkauf.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf\\Wpf.csproj|solutionrelative:wpf\\listeeinkauf.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
@@ -23,7 +23,7 @@
       "RelativeMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf\\Wpf.csproj|solutionrelative:wpf\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf\\Wpf.csproj|c:\\sursee untericht\\ipt6.1_rezept_planer\\wpf ipt6.1_rezept_planer\\wpf\\rezept.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf\\Wpf.csproj|C:\\Sursee Untericht\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\wpf\\rezept.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{3FE2DD2D-F46F-4A3C-AEB9-2A91D848D5E3}|Wpf\\Wpf.csproj|solutionrelative:wpf\\rezept.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
@@ -68,7 +68,7 @@
               "RelativeDocumentMoniker": "Wpf\\Listeeinkauf.xaml.cs",
               "ToolTip": "C:\\Sursee Untericht\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\Listeeinkauf.xaml.cs",
               "RelativeToolTip": "Wpf\\Listeeinkauf.xaml.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAgwBEBAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAkwKgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-11T06:29:32.774Z",
               "EditorCaption": ""
@@ -82,8 +82,7 @@
               "ToolTip": "C:\\Sursee Untericht\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\Listeeinkauf.xaml",
               "RelativeToolTip": "Wpf\\Listeeinkauf.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-06-11T06:32:00.286Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-11T06:32:00.286Z"
             },
             {
               "$type": "Document",
@@ -94,8 +93,7 @@
               "ToolTip": "C:\\Sursee Untericht\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\rezept.xaml",
               "RelativeToolTip": "Wpf\\rezept.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-28T06:18:45.544Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-28T06:18:45.544Z"
             },
             {
               "$type": "Document",
@@ -107,8 +105,7 @@
               "RelativeToolTip": "Wpf\\MainWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T06:15:41.684Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-28T06:15:41.684Z"
             },
             {
               "$type": "Document",
@@ -120,8 +117,7 @@
               "RelativeToolTip": "Wpf\\Kulschrak\u00FCbersicht.xaml.cs",
               "ViewState": "AgIAAI4AAAAAAAAAAAAkwDcAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T06:37:29.03Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-19T06:37:29.03Z"
             },
             {
               "$type": "Document",
@@ -132,8 +128,7 @@
               "ToolTip": "C:\\Sursee Untericht\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\App.xaml",
               "RelativeToolTip": "Wpf\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-19T06:37:23.567Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-19T06:37:23.567Z"
             },
             {
               "$type": "Document",
@@ -145,8 +140,7 @@
               "RelativeToolTip": "Wpf\\App.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T06:39:55.606Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-19T06:39:55.606Z"
             },
             {
               "$type": "Document",
@@ -157,8 +151,7 @@
               "ToolTip": "C:\\Sursee Untericht\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\Kulschrak\u00FCbersicht.xaml",
               "RelativeToolTip": "Wpf\\Kulschrak\u00FCbersicht.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-19T06:37:09.405Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-19T06:37:09.405Z"
             },
             {
               "$type": "Document",
@@ -181,8 +174,7 @@
               "ToolTip": "C:\\Sursee Untericht\\IPT6.1_Rezept_planer\\Wpf IPT6.1_Rezept_planer\\Wpf\\MainWindow.xaml",
               "RelativeToolTip": "Wpf\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-19T06:37:16.941Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-19T06:37:16.941Z"
             }
           ]
         }

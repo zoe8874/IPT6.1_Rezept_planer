@@ -208,7 +208,41 @@ Die Tabellen sind in relationaler Form wie folgt organisiert:
 
 ---
 
-## 6. OOP- und Architekturkonzept
+## 6. Programmablaufplan (PAP)
+
+Der Programmablaufplan ist als PAP-Datei im Projektordner gespeichert: [Rezept_Planer.pap](Rezept_Planer.pap)
+
+Die wesentlichen Abläufe der Anwendung lassen sich wie folgt darstellen:
+
+```mermaid
+flowchart TD
+    A[Start] --> B[Programm öffnen]
+    B --> C{Button wählen}
+    C -->|My Fridge| D[Kühlschrankverwaltung öffnen]
+    D --> E[Eingaben für Zutat, Menge, Einheit und Ablaufdatum]
+    E --> F[Neuer Kühlschrankinhalt wird angezeigt]
+    F --> G{Bearbeiten?}
+    G -->|ja| E
+    G -->|nein| H[Ende]
+
+    C -->|Recipes| I[Rezepte anzeigen]
+    I --> J[Rezept auswählen]
+    J --> K{Zutaten vorhanden?}
+    K -->|ja| L[Rezept kann gekocht werden]
+    K -->|nein| M[Rezept ist nicht vollständig verfügbar]
+    L --> H
+    M --> H
+
+    C -->|ShoppingList| N[Einkaufsliste erstellen]
+    N --> O[Eingabe von Zutat, Menge und Einheit]
+    O --> P[Aktualisierte Einkaufsliste anzeigen]
+    P --> Q{Ändern?}
+    Q -->|ja| R[Löschen oder neue Zutaten hinzufügen]
+    R --> O
+    Q -->|nein| H
+```
+
+## 7. OOP- und Architekturkonzept
 
 ### 6.1 Objektorientierte Umsetzung
 Die Anwendung verwendet objektorientierte Prinzipien über die Fensterklassen und Datenmodellklassen. Dazu zählen:
